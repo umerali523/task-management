@@ -1,0 +1,8 @@
+.task-list > ul li:nth-child(1), .task-list-body a div:nth-child(1){width: 25%;}
+.task-list > ul li:nth-child(2), .task-list-body a div:nth-child(2){width: 25%;}
+.task-list > ul li:nth-child(3), .task-list-body a div:nth-child(3){width: 25%;}
+.task-list > ul li:nth-child(4), .task-list-body a div:nth-child(4){width: 25%;}
+
+.search-filter{
+    width: 450px;
+}

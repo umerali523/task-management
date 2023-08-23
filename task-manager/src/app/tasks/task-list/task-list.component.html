@@ -1,0 +1,54 @@
+
+<div class="card-widget mb-15">
+    <div class="card-widget-header">
+        <i class="ic_grain"></i> Tasks
+        <div class="add_btn_icon" ngbTooltip="Add Task">
+                <a (click)="addTask();" placement="top"  class="ic_add_large"></a>
+        </div>
+        <div class="pull-right">
+            <div class="search-filter">
+              <form>
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">Filter by Status</label>
+                  <div class="col-sm-9">
+                    <select (change)="onChangeFilter()" class="form-control" [(ngModel)]="filter" name="filter">
+                      <option value="all">All</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+  <div class="card-widget-body">
+  <div class="list task-list mt-20">
+      <ul>
+          <li>Title</li>
+          <li>Description</li>
+          <li>Status</li>
+          <li>Actions</li>
+      </ul>
+  </div>
+  <div class="list-body task-list-body list-body active" *ngFor="let task of taskList">
+    <a>
+        <div>{{task.title}}</div>
+        <div>{{task.description}}</div>
+      <div>
+        <span class="status-icon" [ngClass]="{'pending' : task.status == 'Pending','completed' : task.status == 'Completed'}"></span>
+        {{task.status}}
+      </div>
+      <div>
+        <span (click)="editTask(task)" ngbTooltip="Edit" class="fs-18 mr-10"> <i class="fa fa-pencil"></i></span>
+        <span (click)="markTaskCompleted(task)" ngbTooltip="Mark as complete" class="fs-18 mr-10"> <i class="fa fa-check"></i></span>
+        <span (click)="removeItem(task)" ngbTooltip="Remove" class="fs-18"> <i class="fa fa-trash"></i></span>
+        
+      </div>
+    </a>
+  </div>
+  
+  </div>
+  </div>
+  

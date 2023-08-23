@@ -1,0 +1,47 @@
+<div class="card-widget mt-15 mb-15">
+  <div class="card-widget-header">
+      <span *ngIf="taskID && taskID!=''"><i class="ic_grain" ></i> Edit Task</span>
+      <span *ngIf="!taskID"><i class="ic_grain" ></i> Add Task</span>
+  <div class="pull-right">
+      <button type="button" class="close-gray" aria-label="Close" (click)="closeTask()">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <div class="card-widget-body">
+		<form class="needs-validation" novalidate="" [formGroup]="taskForm" (submit)="saveTask()">
+            <div class="row">
+              <div class="form-group col-md-3 mb-3">
+                <label>Title</label>
+                <span class="fieldRequired">*</span>
+                <input formControlName="title"  type="text" class="form-control" id="title" placeholder="Enter Title" [ngClass]="{ 'is-invalid': formSubmitted && taskForm.controls['title'].status=='INVALID' }">
+               
+                <div class="invalid-feedback">
+                  <span >Title is required.</span>
+                </div>
+              </div>
+              <div class="form-group col-md-3 mb-3">
+                <label>Description</label>
+                <input formControlName="description" type="text" class="form-control" id="description" placeholder="Enter Description"  [ngClass]="{ 'is-invalid': formSubmitted && taskForm.controls['description'].status=='INVALID' }">
+                <div class="invalid-feedback">
+                  Description is required.
+                </div>
+              </div>
+              <div class="form-group col-md-3 mb-3">
+                <label>Status</label>
+                <select class="form-control" formControlName="status">
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <div class="invalid-feedback">
+                  Description is required.
+                </div>
+              </div>
+            <div class="form-group col-md-3 mb-3 mt-20">
+                <button class="btn btn-normal btn-primary" type="submit">Save</button>
+            </div>
+
+            </div>
+          </form>
+	  </div>
+  </div>
