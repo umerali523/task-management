@@ -48,10 +48,11 @@
     position: fixed;
     top: 60px;
     left: -170px; /* Sidebar is hidden off-screen */
-    background-color: #ececec;
+    background-color: #fafafa;
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
+
   }
   
   .sidebar a {
@@ -62,16 +63,36 @@
     color: #818181;
     display: block;
     transition: 0.3s;
+    height: 60px;
   }
   
   .sidebar a:hover {
-    color: #f1f1f1;
+    background-color:  #4cb2d7;
+    color: #fff;
   }
   
   /* Apply this class when sidebarOpen is true */
   .sidebar.open-sidebar {
     left: 0; /* Move sidebar to visible position */
   }
+  .sidebar a span{
+    display: none;
+  }
+  .sidebar a i{
+    float: right;
+    font-size: 38px;
+  }
+  .sidebar.open-sidebar a i{
+    float: left;
+    font-size: 38px;
+  }
+
+  .sidebar.open-sidebar a span{
+    display: flex;
+    margin-left: 66px;
+    font-size: 22px;
+  }
+  
   
   /* Content styles */
   

@@ -11,7 +11,10 @@
       <div class="spacer"></div>
   </div>
   <div class="sidebar" #sidebarElement [ngClass]="{ 'open-sidebar': isOpenSidebar }">
-    <a routerLink="/tasks">Tasks</a>
+    <a routerLink="/tasks">
+      <i  class="fa fa-tasks"></i>
+      <span>Tasks</span>
+    </a>
   </div>
   
   <div class="content slider-transition" role="main" [ngClass]="{ 'open-sidebar': isOpenSidebar }">
