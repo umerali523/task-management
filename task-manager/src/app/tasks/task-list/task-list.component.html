@@ -32,22 +32,31 @@
           <li>Actions</li>
       </ul>
   </div>
-  <div class="list-body task-list-body list-body active" *ngFor="let task of taskList">
-    <a>
-        <div>{{task.title}}</div>
-        <div>{{task.description}}</div>
-      <div>
-        <span class="status-icon" [ngClass]="{'pending' : task.status == 'Pending','completed' : task.status == 'Completed'}"></span>
-        {{task.status}}
-      </div>
-      <div>
-        <span (click)="editTask(task)" ngbTooltip="Edit" class="fs-18 mr-10"> <i class="fa fa-pencil"></i></span>
-        <span (click)="markTaskCompleted(task)" ngbTooltip="Mark as complete" class="fs-18 mr-10"> <i class="fa fa-check"></i></span>
-        <span (click)="removeItem(task)" ngbTooltip="Remove" class="fs-18"> <i class="fa fa-trash"></i></span>
-        
-      </div>
-    </a>
+  <ng-container *ngIf="taskList && taskList.length>0;else:noData">
+    <div class="list-body task-list-body list-body active" *ngFor="let task of taskList">
+      <a>
+          <div>{{task.title}}</div>
+          <div>{{task.description}}</div>
+        <div>
+          <span class="status-icon" [ngClass]="{'pending' : task.status == 'Pending','completed' : task.status == 'Completed'}"></span>
+          {{task.status}}
+        </div>
+        <div>
+          <span (click)="editTask(task)" ngbTooltip="Edit" class="fs-18 mr-10"> <i class="fa fa-pencil"></i></span>
+          <span (click)="markTaskCompleted(task)" ngbTooltip="Mark as complete" class="fs-18 mr-10"> <i class="fa fa-check"></i></span>
+          <span (click)="removeItem(task)" ngbTooltip="Remove" class="fs-18"> <i class="fa fa-trash"></i></span>
+          
+        </div>
+      </a>
+    </div>
+  </ng-container>
+  <ng-template #noData>
+    <div class="emptyData">
+      <span>
+          No task exist.
+      </span>
   </div>
+  </ng-template>
   
   </div>
   </div>

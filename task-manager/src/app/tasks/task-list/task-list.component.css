@@ -6,3 +6,7 @@
 .search-filter{
     width: 450px;
 }
+.emptyData{
+    text-align: center;
+    margin-top: 10px;
+}
